@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
+
+// eslint-disable-next-line unicorn/prefer-node-protocol
 const fs = require('fs');
 
 const getMemeHTML = async () => {
@@ -33,7 +35,33 @@ const getMemeHTML = async () => {
     download();
   }
 
-  console.log(firstTenImages);
+  // Creating an array with all image URL's to implement the user input functionality
+  const allImages = [];
+  document('img').each((i, img) => {
+    if (i) {
+      allImages.push(img.attribs.src);
+    }
+  });
+
+  console.log(allImages);
+
+  // Looping through allImages to see if user input matches any of the URL strings and then logging the new URL
+  for (let j = 0; j < allImages.length; j++) {
+    if (allImages[j].includes(process.argv[4])) {
+      const individualURL = new URL(allImages[j]);
+      individualURL.pathname = `/images/${process.argv[4]}/${process.argv[2]}/${process.argv[3]}`;
+      console.log(individualURL.href);
+
+      async function download() {
+        const imageResponse = await fetch(individualURL.href);
+        const buffer = await imageResponse.buffer();
+        fs.writeFile(`./new_memes/${j}.jpg`, buffer, () =>
+          console.log(`finished downloading!`),
+        );
+      }
+      download();
+    }
+  }
 };
 
 getMemeHTML();
