@@ -43,15 +43,14 @@ const getMemeHTML = async () => {
     }
   });
 
-  console.log(allImages);
-
   // Looping through allImages to see if user input matches any of the URL strings and then logging the new URL
   for (let j = 0; j < allImages.length; j++) {
     if (allImages[j].includes(process.argv[4])) {
+      // Creating new URL for the images
       const individualURL = new URL(allImages[j]);
       individualURL.pathname = `/images/${process.argv[4]}/${process.argv[2]}/${process.argv[3]}`;
-      console.log(individualURL.href);
 
+      // Fetching the data of the specific image and downloading it into the new_memes folder
       async function download() {
         const imageResponse = await fetch(individualURL.href);
         const buffer = await imageResponse.buffer();
