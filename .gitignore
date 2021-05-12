@@ -1,3 +1,5 @@
 node_modules
 memes
 .eslintcache
+yarn-error.log
+.eslintcache
