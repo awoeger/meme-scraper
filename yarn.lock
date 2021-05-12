@@ -173,7 +173,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/node@7.13.13":
+"@babel/node@^7.13.13":
   version "7.13.13"
   resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.13.13.tgz#9201214dab4ae41c1e1596b7d2e27098395b1509"
   integrity sha512-gElSPunpriXoBGQxDkd5h9L13SVTyzFLTPv9jN1aXJNLR10iNs+MsfhYL/WGJGCJQFddHAdThY7CkmGVz2KPag==
@@ -472,10 +472,10 @@
     "@typescript-eslint/types" "4.22.1"
     eslint-visitor-keys "^2.0.0"
 
-"@upleveled/babel-plugin-remove-node-prefix@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@upleveled/babel-plugin-remove-node-prefix/-/babel-plugin-remove-node-prefix-1.0.1.tgz#4694c20d976b1ab324b2ea3dd1cbb74f0fb32d75"
-  integrity sha512-YOVTXh2KzV6+AFN280kH8Xat/XC/m3CPqZO1GGcvo/F/9l4lfPctwTZxcJ0zy5oN+mJZQrHk4Ian10Mn2g8a/Q==
+"@upleveled/babel-plugin-remove-node-prefix@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@upleveled/babel-plugin-remove-node-prefix/-/babel-plugin-remove-node-prefix-1.0.4.tgz#45592ffe739d272526cadac89c487a423fb97b7a"
+  integrity sha512-EBiMQNjGgDWhe/BcDRbb1R4q4SqS9bMH+NDFZMVMk1XrEHUr4Q5kMKZYDtj79y5QSASYCMQ29dLk9SvCv6haVQ==
 
 "@upleveled/eslint-config-upleveled@1.13.1":
   version "1.13.1"
