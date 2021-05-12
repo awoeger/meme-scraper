@@ -1,8 +1,7 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
-// eslint-disable-next-line unicorn/prefer-node-protocol
-const fs = require('fs');
+const fs = require('node:fs');
 
 const getMemeHTML = async () => {
   // get html text
@@ -13,13 +12,15 @@ const getMemeHTML = async () => {
   const body = await response.text();
 
   // parse the html text and extract titles
-  const document = cheerio.load(body);
+  const $ = cheerio.load(body);
 
   const firstTenImages = [];
   // Looping through the DOM elements created by cheerio.load(body) and pushing the first 10 images into empty array
-  document('img').each((i, img) => {
+  $('img').each((i, img) => {
     if (i <= 9) {
       firstTenImages.push(img.attribs.src);
+    } else {
+      return false;
     }
   });
 
@@ -37,7 +38,7 @@ const getMemeHTML = async () => {
 
   // Creating an array with all image URL's to implement the user input functionality
   const allImages = [];
-  document('img').each((i, img) => {
+  $('img').each((i, img) => {
     if (i) {
       allImages.push(img.attribs.src);
     }
